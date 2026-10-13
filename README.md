@@ -1,13 +1,13 @@
-# Assignment 4 - Dynamic Task Dashboard
+# Assignment 4: Dynamic Task Dashboard
 
-## File Organization
-- `index.html`: Contains the core structural elements (`loadTasksBtn`, `statusMessage`, `taskList`).
-- `styles.css`: Provides clean, minimal styling for layout, completed task line-through states, and buttons.
-- `taskManager.js`: Defines the `Task` class (with immutable, read-only `id` via `Object.defineProperty` and a `toggle()` method) and the `TaskManager` class (handling array updates immutably using ES6 spread operators and methods like `map` and `filter`).
-- `api.js`: Simulates an asynchronous server endpoint returning raw task data using `Promises` and `setTimeout`.
-- `main.js`: Orchestrates DOM events, asynchronous data fetching (`async/await`), the required `JSON.stringify`/`JSON.parse` workflow, and dynamic rendering.
+## Project Structure
+- **index.html**: Main HTML document containing the structural elements (`loadTasksBtn`, `statusMessage`, `taskList`) and module script linkage.
+- **styles.css**: Basic presentation styles for the dashboard container, task items, completed text decoration, and buttons.
+- **taskManager.js**: Implements the ES6 `Task` class (with immutable, read-only `id` configuration) and the `TaskManager` class for managing state immutably.
+- **api.js**: Simulates an asynchronous server request using `Promises` and `setTimeout` with a 1500ms delay.
+- **main.js**: Coordinates user interactions, DOM event listeners, asynchronous task fetching, JSON serialization/parsing, and dynamic UI updates.
 
 ## Challenges Faced
-1. **Immutability Enforcement:** Ensuring that operations like adding, deleting, and toggling tasks did not mutate the original array, which was successfully solved using array methods like `.map()`, `.filter()`, and the spread operator (`...`).
-2. **Read-only Properties:** Securing the task `id` property to make it strictly immutable using `Object.defineProperty`.
-3. **Event Delegation & DOM Creation:** Dynamically creating elements using `createElement` and binding clean event listeners without inline handlers.
+- Ensuring strict immutability across all `TaskManager` operations by avoiding array mutation methods (`push`, `splice`) and instead utilizing functional alternatives (`map`, `filter`, and spread operators).
+- Configuring the task `id` property to be strictly read-only and immutable using `Object.defineProperty`.
+- Managing asynchronous flow control using `async/await` along with required JSON serialization steps prior to class instantiation.
